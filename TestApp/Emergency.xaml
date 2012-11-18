@@ -11,7 +11,7 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="PortraitUp"
     mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
-    shell:SystemTray.IsVisible="True" xmlns:my="clr-namespace:TestApp" Loaded="PhoneApplicationPageLoaded">
+    shell:SystemTray.IsVisible="True" Loaded="PhoneApplicationPageLoaded" xmlns:my="clr-namespace:TestApp">
 
     <!--LayoutRoot è la griglia radice in cui viene inserito tutto il contenuto della pagina-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -22,20 +22,32 @@
 
         <!--TitlePanel contiene il nome dell'applicazione e il titolo della pagina-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock x:Name="ApplicationTitle" Text="APPLICAZIONE" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="ApplicationTitle" Text="OGEO" Style="{StaticResource PhoneTextNormalStyle}"/>
             <TextBlock x:Name="PageTitle" Text="Emergenza" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - inserire ulteriore contenuto qui-->
-        <ScrollViewer Margin="0, 130, 0, 0">
-            <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0" Height="639">
-                <my:NumericUpDown HorizontalAlignment="Left" Margin="9,6,0,0" x:Name="numericUpDown1" VerticalAlignment="Top" Width="438" MaxValue="10" LabelString="Danni edificio" />
-                <my:NumericUpDown HorizontalAlignment="Left" Margin="9,127,0,0" x:Name="numericUpDown2" VerticalAlignment="Top" Width="438" LabelString="Danni stradali" MaxValue="10" />
-                <my:NumericUpDown HorizontalAlignment="Left" Margin="9,248,0,0" x:Name="numericUpDown3" VerticalAlignment="Top" Width="438" MaxValue="10" LabelString="Reti (elettrica, telefonica, acqua)" />
-                <Button Content="Scatta foto" Height="91" HorizontalAlignment="Left" Margin="0,369,0,0" Name="button1" VerticalAlignment="Top" Width="456" Click="Button1Click" />
-                <TextBlock Height="30" HorizontalAlignment="Left" Margin="12,466,0,0" Name="textBlock1" Text="TextBlock" VerticalAlignment="Top" />
-            </Grid>
-        </ScrollViewer>
+        <Grid Grid.Row="1">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="594*" />
+                        <RowDefinition Height="137*" />
+                    </Grid.RowDefinitions>
+                    <Button Content="Scatta foto" Height="91" HorizontalAlignment="Left" Margin="0,417,0,0" Name="button1" VerticalAlignment="Top" Width="456" Click="Button1Click" Background="#ff41c5fd" />
+                    <TextBlock Height="68" HorizontalAlignment="Left" Margin="61,560,0,0" Name="textBlock1" Text="TextBlock" VerticalAlignment="Top" FontSize="32" Width="346" />
+                    <TextBlock Height="46" HorizontalAlignment="Left" Margin="12,500,0,0" Name="textBlock2" Text="Posizione corrente:" VerticalAlignment="Top" FontSize="36" Width="323" />
+                    <Button Content="Invia segnalazione" Height="91" HorizontalAlignment="Left" Margin="0,750,0,0" Name="button2" VerticalAlignment="Top" Width="456" Click="Button2Click" Background="#ff41c5fd" />
+                    <Button Content="Annulla" HorizontalAlignment="Left" Margin="0,590,0,0" Height="91" Name="button3" Width="456" Click="Button3Click" Background="#ff41c5fd" />
+                    <RadioButton FontSize="30" Content="Infrastruttura" Height="72" HorizontalAlignment="Left" Margin="61,218,0,0" Name="radioButton1" VerticalAlignment="Top" />
+                    <RadioButton FontSize="30" Content="Edificio" Height="72" HorizontalAlignment="Left" Margin="61,62,0,0" Name="radioButton2" VerticalAlignment="Top" IsChecked="True" />
+                    <RadioButton FontSize="30" Content="Via di comunicazione" Height="72" HorizontalAlignment="Left" Margin="61,140,0,0" Name="radioButton3" VerticalAlignment="Top" />
+                    <TextBlock Height="56" HorizontalAlignment="Left" Margin="12,0,0,0" Name="textBlock3" Text="Tipo di struttura:" FontSize="36" VerticalAlignment="Top" />
+                    <my:NumericUpDown HorizontalAlignment="Left" Margin="12,290,0,0" x:Name="numericUpDown1" VerticalAlignment="Top" Width="438" MaxValue="10" LabelString="Status" />
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+        
     </Grid>
  
     <!--Codice di esempio che illustra l'utilizzo di ApplicationBar-->

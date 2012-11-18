@@ -30,5 +30,10 @@ namespace TestApp
         {
             NavigationService.Navigate(new Uri("/Emergency.xaml", UriKind.Relative));
         }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Persone.xaml", UriKind.Relative));
+        }
     }
 }

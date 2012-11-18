@@ -1,16 +1,16 @@
 ﻿<phone:PhoneApplicationPage 
-    x:Class="TestApp.MainPage"
+    x:Class="TestApp.Persone"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait" Orientation="PortraitUp"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot è la griglia radice in cui viene inserito tutto il contenuto della pagina-->
@@ -23,19 +23,19 @@
         <!--TitlePanel contiene il nome dell'applicazione e il titolo della pagina-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
             <TextBlock x:Name="ApplicationTitle" Text="OGEO" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle" Text="Home page" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock x:Name="PageTitle" Text="Reg. persone" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - inserire ulteriore contenuto qui-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Button Content="Nuova emergenza" Height="128" HorizontalAlignment="Left" Margin="6,6,0,0" Name="button1" VerticalAlignment="Top" Width="450" Click="button1_Click" Background="#FF41C5FD" />
-            <Button Content="Registrazione persone" Height="128" HorizontalAlignment="Left" Margin="6,140,0,0" Name="button2" VerticalAlignment="Top" Width="450" Click="button2_Click" Background="#FF41C5FD" />
-            <Button Content="Opzioni" Height="128" HorizontalAlignment="Left" Margin="9,473,0,0" Name="button3" VerticalAlignment="Top" Width="450" Click="button3_Click" Background="#FF41C5FD" />
-            <Rectangle Height="193" HorizontalAlignment="Left" Margin="12,274,0,0" Name="rectangle1" Stroke="Black" StrokeThickness="0" VerticalAlignment="Top" Width="438">
-                <Rectangle.Fill>
-                    <ImageBrush ImageSource="/TestApp;component/Images/logo.png" Stretch="UniformToFill" />
-                </Rectangle.Fill>
-            </Rectangle>
+            <TextBox Height="72" HorizontalAlignment="Left" Margin="0,41,0,0" Name="textBox1" Text="" VerticalAlignment="Top" Width="460" />
+            <TextBox Height="72" HorizontalAlignment="Left" Margin="0,141,0,0" Name="textBox2" Text="" VerticalAlignment="Top" Width="460" />
+            <TextBox Height="72" HorizontalAlignment="Left" Margin="0,241,0,0" Name="textBox3" Text="" VerticalAlignment="Top" Width="460"></TextBox>
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="12,19,0,0" Name="textBlock1" Text="Nome e cognome" VerticalAlignment="Top" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="12,119,0,0" Name="textBlock2" Text="Indirizzo e-mail" VerticalAlignment="Top" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="12,219,0,0" Name="textBlock3" Text="Telefono/cellulare" VerticalAlignment="Top" />
+            <Button Content="Annulla" Height="91" HorizontalAlignment="Left" Margin="0,319,0,0" Name="button1" VerticalAlignment="Top" Width="456" Click="Button1Click" Background="#FF41C5FD" />
+            <Button Content="Registra persona" Height="91" HorizontalAlignment="Left" Margin="0,416,0,0" Name="button2" VerticalAlignment="Top" Width="456" Background="#FF41C5FD" Click="Button2Click" />
         </Grid>
     </Grid>
  

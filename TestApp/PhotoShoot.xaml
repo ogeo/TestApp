@@ -10,7 +10,7 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     mc:Ignorable="d" d:DesignHeight="480" d:DesignWidth="800"
-    SupportedOrientations="Landscape" Orientation="LandscapeLeft"
+    SupportedOrientations="Landscape" Orientation="LandscapeRight"
     shell:SystemTray.IsVisible="False">
 
     <!--LayoutRoot è la griglia radice in cui viene inserito tutto il contenuto della pagina-->
@@ -31,12 +31,9 @@
 
         <!--Button StackPanel to the right of viewfinder>-->
         <StackPanel Grid.Column="1" >
-            <Button x:Name="ShutterButton" Content="Scatta" Click="ShutterButtonClick1" FontSize="26" FontWeight="ExtraBold" Height="75" />
-            <Button Content="Esci" FontSize="26" FontWeight="ExtraBold" Height="75" Name="button1" Click="Button1Click" />
+            <Button x:Name="ShutterButton" Content="Scatta" Click="ShutterButtonClick1" FontSize="26" FontWeight="ExtraBold" Height="75" Background="#FF41C5FD" />
+            <Button Content="Esci" FontSize="26" FontWeight="ExtraBold" Height="75" Name="button1" Click="Button1Click" Background="#FF41C5FD" />
         </StackPanel>
-
-        <!--Used for debugging >-->
-        <TextBlock Height="40" HorizontalAlignment="Left" Margin="8,428,0,0" Name="txtDebug" VerticalAlignment="Top" Width="626" FontSize="24" FontWeight="ExtraBold" />
     </Grid>
 
     <!--Codice di esempio che illustra l'utilizzo di ApplicationBar-->

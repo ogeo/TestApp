@@ -10,11 +10,11 @@
     d:DesignHeight="115" d:DesignWidth="480" Width="438" Loaded="UserControl_Loaded">
     
     <Grid x:Name="LayoutRoot">
-        <TextBlock Height="30" HorizontalAlignment="Left" Margin="12,12,0,0" Name="textBlock1" Text="TextBlock" VerticalAlignment="Top" />
-        <Button Content="+" Height="72" HorizontalAlignment="Right" Margin="0,34,12,0" Name="button1" VerticalAlignment="Top" Width="72" Click="button1_Click" />
-        <Button Content="-" HorizontalAlignment="Left" Margin="276,34,0,9" Name="button2" Width="72" Click="button2_Click" />
+        <TextBlock Height="39" HorizontalAlignment="Left" Margin="12,0,0,0" Name="textBlock1" Text="TextBlock" VerticalAlignment="Top" FontSize="30" />
+        <Button Content="+" Height="72" HorizontalAlignment="Right" Margin="0,34,12,0" Name="button1" VerticalAlignment="Top" Width="72" Click="button1_Click" Background="#FF41C5FD" />
+        <Button Content="-" HorizontalAlignment="Left" Margin="276,34,0,9" Name="button2" Width="72" Click="button2_Click" Background="#FF41C5FD" />
         <Border BorderThickness="3" Height="49" HorizontalAlignment="Left" Margin="12,45,0,0" Name="border1" VerticalAlignment="Top" Width="258" BorderBrush="White">
-            <TextBlock Height="30" Name="textBlock2" Text="5" Width="210" />
+            <TextBlock Height="30" Name="textBlock2" Text="5" Width="210" FontSize="25" />
         </Border>
     </Grid>
 </UserControl>
