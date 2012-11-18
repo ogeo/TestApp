@@ -85,7 +85,6 @@
     <Compile Include="PhotoShoot.xaml.cs">
       <DependentUpon>PhotoShoot.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PostSender.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

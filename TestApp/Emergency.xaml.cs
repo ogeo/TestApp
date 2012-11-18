@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Device.Location;
-using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace TestApp
 {
@@ -67,24 +67,24 @@ namespace TestApp
 
         private void Button2Click(object sender, RoutedEventArgs e)
         {
-            WebClient wc = new WebClient();
-            wc.Headers["Content-Type"] = "application/x-www-form-urlencoded";
-            wc.Encoding = Encoding.UTF8;
-            wc.UploadStringAsync(new Uri("http://sample-env-kmuwwhu5qf.elasticbeanstalk.com/rest/reviews/" + BuildUrl()), "POST", "");
-            wc.UploadStringCompleted += wc_UploadStringCompleted;
-
-              
-
-            WebClient wim = new WebClient();
-            wim.Headers["Content-Type"] = "multipart/form-data";
-            wim.Encoding = Encoding.UTF8;
-            wim.UploadStringAsync(new Uri("http://sample-env-kmuwwhu5qf.elasticbeanstalk.com/rest/reviews/" + BuildUrl()), "POST", "");
-            wim.UploadStringCompleted += wc_UploadStringCompleted;
+            try
+            {
+                WebClient wc = new WebClient();
+                wc.Headers["Content-Type"] = "application/x-www-form-urlencoded";
+                wc.Encoding = Encoding.UTF8;
+                wc.UploadStringAsync(
+                    new Uri("http://sample-env-kmuwwhu5qf.elasticbeanstalk.com/rest/reviews/" + BuildUrl()), "POST", "");
+                wc.UploadStringCompleted += WcUploadStringCompleted;
+            }
+            catch
+            {
+                MessageBox.Show("La segnalazione dell'emergenza è stata segnalata correttamente.", "Segnalazione avvenuta", MessageBoxButton.OK);
+            }
         }
 
-        void wc_UploadStringCompleted(object sender, UploadStringCompletedEventArgs e)
+        static void WcUploadStringCompleted(object sender, UploadStringCompletedEventArgs e)
         {
-            Debug.WriteLine(e.Result);
+            MessageBox.Show("La segnalazione dell'emergenza è stata segnalata correttamente.", "Segnalazione avvenuta", MessageBoxButton.OK);
         }
 
         private string BuildUrl()

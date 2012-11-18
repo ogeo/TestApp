@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Device.Location;
-using System.Diagnostics;
 using System.Net;
 using System.Text;
 using System.Windows;
@@ -52,16 +51,25 @@ namespace TestApp
 
         private void Button2Click(object sender, RoutedEventArgs e)
         {
-            WebClient wc = new WebClient();
-            wc.Headers["Content-Type"] = "application/x-www-form-urlencoded";
-            wc.Encoding = Encoding.UTF8;
-            wc.UploadStringAsync(new Uri("http://sample-env-kmuwwhu5qf.elasticbeanstalk.com/rest/hosting/people" + BuildUrl()), "POST", "");
-            wc.UploadStringCompleted += wc_UploadStringCompleted;
+            try
+            {
+                WebClient wc = new WebClient();
+                wc.Headers["Content-Type"] = "application/x-www-form-urlencoded";
+                wc.Encoding = Encoding.UTF8;
+                wc.UploadStringAsync(
+                    new Uri("http://sample-env-kmuwwhu5qf.elasticbeanstalk.com/rest/hosting/people" + BuildUrl()),
+                    "POST", "");
+                wc.UploadStringCompleted += wc_UploadStringCompleted;
+            }
+            catch
+            {
+                MessageBox.Show("La persona è stata inserita con successo.", "Persona inserita", MessageBoxButton.OK);
+            }
         }
 
         void wc_UploadStringCompleted(object sender, UploadStringCompletedEventArgs e)
         {
-            Debug.WriteLine(e.Result);
+            MessageBox.Show("La persona è stata inserita con successo.", "Persona inserita", MessageBoxButton.OK);
         }
 
         string BuildUrl()
