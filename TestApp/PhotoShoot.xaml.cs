@@ -1,14 +1,12 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.IO.IsolatedStorage;
 using System.Windows;
 using Microsoft.Devices;
-using Microsoft.Phone.Controls;
 using Microsoft.Xna.Framework.Media;
 
 namespace TestApp
 {
-    public partial class PhotoShoot : PhoneApplicationPage
+    public partial class PhotoShoot
     {
         private int _savedCounter;
         private PhotoCamera _cam;
@@ -17,6 +15,8 @@ namespace TestApp
         public PhotoShoot()
         {
             InitializeComponent();
+
+            ShutterButton.IsEnabled = false;
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
@@ -30,6 +30,8 @@ namespace TestApp
                 _cam.CaptureThumbnailAvailable += CamCaptureThumbnailAvailable;
 
                 viewfinderBrush.SetSource(_cam);
+
+                ShutterButton.IsEnabled = true;
             }
         }
 
@@ -76,8 +78,12 @@ namespace TestApp
             }
             finally
             {
-
                 e.ImageStream.Close();
+
+                GlobalVars.PhotoName = fileName;
+
+                Dispatcher.BeginInvoke(() =>
+                NavigationService.Navigate(new System.Uri("/Emergency.xaml", System.UriKind.Relative)));
             }
 
         }
@@ -114,6 +120,12 @@ namespace TestApp
         {
             if (_cam == null) return;
             _cam.CaptureImage();
+        }
+
+        private void Button1Click(object sender, RoutedEventArgs e)
+        {
+            GlobalVars.PhotoName = "";
+            NavigationService.Navigate(new System.Uri("/Emergency.xaml", System.UriKind.Relative));
         }
     }
 }
